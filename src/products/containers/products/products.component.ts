@@ -1,8 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Pizza } from '../../models/pizza.model';
-// use to use this
-import { PizzasService } from '../../services/pizzas.service';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store';
 import { Observable } from 'rxjs/Observable';
@@ -33,7 +31,6 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ProductsComponent implements OnInit {
   pizzas$: Observable<Pizza[]>;
-  pizzas: Pizza[];
 
   constructor(private store: Store<fromStore.ProductsState>) {}
 
@@ -41,7 +38,7 @@ export class ProductsComponent implements OnInit {
     // this.pizzaService.getPizzas().subscribe(pizzas => {
     //   this.pizzas = pizzas;
     // });
-    this.pizzas$ = this.store.select<Pizza[]>(fromStore.getAllPizzas);
+    this.pizzas$ = this.store.select(fromStore.getAllPizzas);
     this.store.dispatch(new fromStore.LoadPizzas());
   }
 }
