@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 module.exports = config => {
   config.set({
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
     files: ['./node_modules/es6-shim/es6-shim.min.js', 'karma.entry.js'],
     frameworks: ['jasmine'],
     mime: { 'text/x-typescript': ['ts'] },
